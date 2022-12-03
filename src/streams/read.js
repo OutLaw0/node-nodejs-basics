@@ -5,9 +5,7 @@ const fileName = './files/fileToRead.txt'
 
 const read = async () => {
   const readable = createReadStream(returnPathAbs(fileName, import.meta.url), 'utf-8');
-  readable.on('data', (chunk) => {
-    process.stdout.write(chunk);
-  });
+  readable.pipe(process.stdout);
 };
 
 await read();

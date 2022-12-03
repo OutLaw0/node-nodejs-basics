@@ -5,9 +5,7 @@ const fileName = './files/fileToWrite.txt'
 
 const write = async () => {
   const writable = createWriteStream(returnPathAbs(fileName, import.meta.url), 'utf-8');
-  process.stdin.on('data', (data) => {
-    writable.write(data.toString());
-  });
+  process.stdin.pipe(writable);
   console.log('Type something and press ENTER\nfor EXIT press "Ctrl+C"\n')
 };
 
