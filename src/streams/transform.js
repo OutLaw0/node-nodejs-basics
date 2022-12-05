@@ -14,7 +14,7 @@ const transform = async () => {
     revertStream,
     process.stdout,
     (err) => {
-      console.log(err);
+      if (err) console.error('An error occurred:', err);
     }
   )
   console.log('type something...');
